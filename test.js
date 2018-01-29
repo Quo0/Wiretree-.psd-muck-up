@@ -34,17 +34,18 @@ function menuToggler(){
 }
 
 slider();
-function slider(){
+function slider(){	
+	var sliderWindow = document.querySelector(".sliderWindow");
 	var sliderLine = document.querySelector(".slidesLine");
-	var slideCount = sliderLine.querySelectorAll(".slide").length;
 	var slideWidth = document.querySelector(".slide").offsetWidth;
+	var slideCount = sliderLine.querySelectorAll(".slide").length;
 	var counter = 1;
 	var left;	
 	function sleft(){
 				left = counter * slideWidth;
 				sliderLine.style.left = -1 * left + "px";
 			}
-	setTimeout(sliderMove, 3000);
+	sliderMove();
 	function sliderMove(){
 		sliderLine.style.transition = "all .5s"; // to set transition back after resize
 		if(counter < slideCount){			
@@ -54,10 +55,18 @@ function slider(){
 		else{
 			counter = 0;			
 		}
-
-		console.log(counter);
-		setTimeout(sliderMove, 3000);
+		timerId = setTimeout(sliderMove, 3000); // global variable for stoping timer on hover
 	}
+
+	// stop timer on hover
+	sliderWindow.onmouseenter = function(){
+		clearTimeout(timerId);
+	}
+	sliderWindow.onmouseleave = function(){
+		timerId = setTimeout(sliderMove, 3000);
+	}
+
+	// changing slides size and position on resize
 	window.onresize = function(){
 		slideWidth = document.querySelector(".slide").offsetWidth;
 		sliderLine.style.transition = "all 0s"; // to stop shaking while resizing

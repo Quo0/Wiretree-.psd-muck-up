@@ -346,7 +346,7 @@ header {
         display: block;
         width: 1em;
         height: 1em;
-        background-image: url(sass/aboutBlock/list.png);
+        background-image: url(../sass/aboutBlock/list.png);
         background-repeat: no-repeat;
         position: absolute;
         left: 0;
