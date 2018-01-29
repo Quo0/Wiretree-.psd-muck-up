@@ -1,0 +1,260 @@
+@media screen and (max-width: 1140px){
+	.innerContainer {
+    padding: 3em;
+	}
+	.copyrightBlock {
+    padding: 2em 3em;
+	}
+	$padding: 2em;
+	header{
+		box-sizing: border-box;
+		padding-left: $padding;
+		padding-right: $padding;
+		.logo{
+			
+		}
+		.nav{
+			li{
+				a{
+					padding: 1em 2em;
+				}
+			}
+		}
+	}
+	.headerInfo{
+		padding-left: $padding;
+		padding-right: $padding;
+	}
+	footer{
+		.footerSection{
+			display: inline-block;
+			vertical-align: top;
+			width: 31%;
+			margin-right: 2.5%;
+			&:first-child{
+				display: block;
+				width: 100%;
+				margin-bottom: 5em;
+			}
+			.popularPostsContent{
+				.postItem{
+					display: inline-block;
+					vertical-align: top;
+					width: 30%;
+					border:0;
+					padding-right: 3%;
+					&:last-of-type{
+						padding-right: 0;
+					}
+				}
+			}
+		}
+	}
+}
+
+@media screen and (max-width: 761px){
+	.innerContainer {
+    padding: 1em;
+	}
+	.copyrightBlock {
+    padding: 2em 1em;
+	}
+	header{
+		padding-top: 2em;
+		position: relative;
+		.nav{
+			z-index: 2;
+			display: none;
+			width: 100%;
+			position: absolute;
+			left: 0;
+			top: 100%;
+			background-color: #333333;
+			&.clicked{
+				display: block;
+			}
+			li{
+				display: block;
+				&:hover{
+					// border-bottom: 1px solid #999;
+					a{						
+						color: #cc6666;	
+						background-color: transparent;
+						padding-left: 1em;
+						&:after{
+							display: none;
+						}
+					}
+				}
+				a{				
+					padding: 0;
+					box-sizing: border-box;
+					transition: all .3s;	
+				}
+				// &:last-child:hover{
+				// 	border: none;
+				// }
+			}
+		}
+		.burger{
+			padding-top: 2em;
+			width: 4em;
+			height: 3em;
+			text-align: center;
+			display: block;
+			float: right;
+			.line{
+				display: inline-block;
+				vertical-align: bottom;
+			}
+		}
+	}
+	.sliderBlock{
+		.slide{	
+			padding: 4em !important;
+			h3{
+				font-size: 1.7em;
+			}
+		}
+	}
+	.provideItemContent{
+		p{
+			padding: 25px 0 0 0px;
+		}
+	}
+	.aboutBlock{
+		.aboutSection{
+			display: inline-block;
+			width: 46%;
+			vertical-align: top;
+			&:nth-child(1){
+				display: block;
+				width: 100%;
+				margin-bottom: 5em;
+			}
+		}
+	}
+	.latestPostsSection{
+		display: inline-block;
+		width: 45%;
+		vertical-align: top;
+		&:nth-of-type(1){
+			margin-right: 9%;
+		}
+	}
+	footer{
+		.footerSection{
+			display: inline-block;
+			vertical-align: top;
+			width: 45%;
+			margin-right: 2.5%;
+			&:first-child{
+				display: inline-block;
+				width: 45%;
+			}
+			.popularPostsContent{
+				.postItem{
+					display: block;
+					width: 100%;
+					padding-right: 0;
+					border-bottom: 1px solid #465057;
+					&:last-child{
+						border: none;
+					}
+				}
+			}
+		}
+	}
+	
+}
+
+@media screen and (max-width: 541px){
+	.headerInfo{
+		padding: 3.6em ;
+		h2{
+			font-size: 2.3em;
+			letter-spacing: 0.15em;
+		}
+	}
+	.sliderBlock{
+		height: 480px;
+		.slide{	
+			padding: 1em !important;
+			h3{
+				font-size: 1.2em;
+			}
+		}
+	}
+	
+	.whatDoWeProvideBlock{
+		.provideItemsContainer{
+			.provideItem{
+				display: block;
+				width: 100%;
+				padding: 0 !important;
+			}
+		}		
+	}
+	.aboutBlock{
+		.aboutSection{
+			display: block;
+			width: 100%;
+			margin: 0 0 2em !important;
+			// h1{
+			// 	&:after{
+			// 		content:"";
+			// 		display: block;
+			// 		width: 100%;
+			// 	}
+			// }
+		}
+	}
+	.latestPostsSection{
+		display: block;
+		width: 100%;
+		vertical-align: top;
+		&:nth-of-type(1){
+			margin-right: 0;
+		}
+	}
+	footer{
+		.footerSection{
+			display: block;
+			width: 100%;
+			margin: 0 0 5em 0;
+			&:first-child{
+				display: block;
+				width: 100%;
+			}
+			&:last-child{
+				margin: 0;
+			}
+			.popularPostsContent{
+				.postItem{
+					display: block;
+					width: 100%;
+					padding-right: 0;
+					border-bottom: 1px solid #465057;
+					&:last-child{
+						border: none;
+					}
+				}
+			}
+		}
+	}
+
+
+
+	.copyrightBlock {
+    	p{
+    		display: block;
+    		text-align: center;
+    		margin-bottom: 1em;
+    	}
+    	.socialBlock{
+    		float:none;
+    		text-align: center;
+    	}
+	}
+	
+}
