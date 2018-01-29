@@ -33,30 +33,42 @@ function menuToggler(){
 	
 }
 
-setTimeout(slider, 4000);
+slider();
 function slider(){
 	var sliderLine = document.querySelector(".slidesLine");
+	var slideCount = sliderLine.querySelectorAll(".slide").length;
 	var slideWidth = document.querySelector(".slide").offsetWidth;
 	var counter = 1;
-	var left;
+	var left;	
 	function sleft(){
 				left = counter * slideWidth;
 				sliderLine.style.left = -1 * left + "px";
 			}
-	setTimeout(sliderMove, 1000);
+	setTimeout(sliderMove, 3000);
 	function sliderMove(){
-		if(counter < 4){			
+		sliderLine.style.transition = "all .5s"; // to set transition back after resize
+		if(counter < slideCount){			
 			sleft();
 			counter ++;	
 		}
 		else{
 			counter = 0;			
 		}
-		setTimeout(sliderMove, 2000);
+
+		console.log(counter);
+		setTimeout(sliderMove, 3000);
 	}
 	window.onresize = function(){
 		slideWidth = document.querySelector(".slide").offsetWidth;
-		sleft();
+		sliderLine.style.transition = "all 0s"; // to stop shaking while resizing
+		if(counter == 0){
+			left = (slideCount - 1) * slideWidth;
+			sliderLine.style.left = -1 * left + "px";
+		}
+		else{			
+			left = (counter - 1) * slideWidth;
+			sliderLine.style.left = -1 * left + "px";
+		}
 	}
 }
 
