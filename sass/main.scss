@@ -558,14 +558,13 @@ footer{
 		
 		.socialBox{
 			display: inline-block;
-			vertical-align: middle;
 			width: 3em;
 			height: 3em;
 			border-radius: 50%;
 			background-color: #FFF;
 			background-repeat: no-repeat;
 			background-position: center center;
-			margin-right: .7em;
+			margin: .7em .7em 0 0;
 			cursor: pointer;
 			&:last-child{
 				margin-right: 0;

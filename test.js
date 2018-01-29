@@ -39,7 +39,7 @@ function slider(){
 	var sliderLine = document.querySelector(".slidesLine");
 	var slideWidth = document.querySelector(".slide").offsetWidth;
 	var slideCount = sliderLine.querySelectorAll(".slide").length;
-	var counter = 1;
+	var counter = 0;
 	var left;	
 	function sleft(){
 				left = counter * slideWidth;
@@ -55,7 +55,7 @@ function slider(){
 		else{
 			counter = 0;			
 		}
-		timerId = setTimeout(sliderMove, 3000); // global variable for stoping timer on hover
+		timerId = setTimeout(sliderMove, 4000); // global variable for clearTimeout on hover
 	}
 
 	// stop timer on hover
@@ -63,8 +63,8 @@ function slider(){
 		clearTimeout(timerId);
 	}
 	sliderWindow.onmouseleave = function(){
-		timerId = setTimeout(sliderMove, 3000);
-	}
+		timerId = setTimeout(sliderMove, 4000);
+	}	
 
 	// changing slides size and position on resize
 	window.onresize = function(){
