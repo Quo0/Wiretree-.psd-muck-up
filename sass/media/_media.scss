@@ -51,7 +51,6 @@
 		}
 	}
 }
-
 @media screen and (max-width: 761px){
 	.innerContainer {
     padding: 1em;
@@ -76,7 +75,6 @@
 			li{
 				display: block;
 				&:hover{
-					// border-bottom: 1px solid #999;
 					a{						
 						color: #cc6666;	
 						background-color: transparent;
@@ -86,14 +84,12 @@
 						}
 					}
 				}
-				a{				
+				a{	
+					display: block;			
 					padding: 0;
 					box-sizing: border-box;
 					transition: all .3s;	
 				}
-				// &:last-child:hover{
-				// 	border: none;
-				// }
 			}
 		}
 		.burger{
@@ -167,7 +163,6 @@
 	}
 	
 }
-
 @media screen and (max-width: 541px){
 	.headerInfo{
 		padding: 3.6em ;
@@ -184,8 +179,7 @@
 				font-size: 1.2em;
 			}
 		}
-	}
-	
+	}	
 	.whatDoWeProvideBlock{
 		.provideItemsContainer{
 			.provideItem{
@@ -242,9 +236,6 @@
 			}
 		}
 	}
-
-
-
 	.copyrightBlock {
     	p{
     		display: block;

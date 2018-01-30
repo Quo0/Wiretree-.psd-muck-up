@@ -26,15 +26,14 @@ function menuToggler(){
 			nav.className = "nav"
 		}
 	}
-	window.onresize = function(){
+	nav.onmouseleave = function(){
 		burgerBtn.className = "burger"
 		nav.className = "nav"
 	}
 	
 }
-
-slider();
-function slider(){	
+// slider
+window.onload = function slider(){	
 	var sliderWindow = document.querySelector(".sliderWindow");
 	var sliderLine = document.querySelector(".slidesLine");
 	var slideWidth = document.querySelector(".slide").offsetWidth;
@@ -75,9 +74,43 @@ function slider(){
 			sliderLine.style.left = -1 * left + "px";
 		}
 		else{			
-			left = (counter - 1) * slideWidth;
+			left = (counter - 1) * slideWidth; // need to -1 due to slide switching 
 			sliderLine.style.left = -1 * left + "px";
 		}
 	}
 }
 
+
+smoothLinks();
+function smoothLinks(){
+	var nav = document.querySelector("ul.nav");
+	nav.addEventListener("click", function(e){
+		if(e.target.tagName =="A"){
+			e.preventDefault();
+			var linkName = e.target.innerHTML.toLowerCase();
+			var idName = "#"+linkName;
+			var targetBlock = document.querySelector(idName);
+			var y = targetBlock.offsetTop;
+			var scrollPosition = window.pageYOffset;
+			// reseting menu for mobiles
+			var nav = document.querySelector(".nav");
+			var burgerBtn = document.querySelector(".burger");
+			nav.className = "nav";
+			burgerBtn.className = "burger";
+			//
+			scrollToId();
+			function scrollToId(){
+				var timer;
+				if(scrollPosition < y){
+					window.scrollTo(0, scrollPosition);
+					scrollPosition = scrollPosition + 50;
+					timer = setTimeout(scrollToId, 10);
+				}
+				else{
+					clearTimeout(timer);
+					window.scrollTo(0, y); // to the point
+				}
+			}
+		}
+	})
+}
