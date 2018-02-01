@@ -19,6 +19,8 @@ p{
 	position: relative;
 	margin: 0 auto;
 	.headerBg{
+		position: absolute;
+		z-index: -1;
 		width: 100%;
 		min-height: 48em;
 		background-color: #333333;
@@ -26,22 +28,27 @@ p{
 	.contentBg{
 		width: 100%;
 		min-height: 200em;
+		position: absolute;
+		z-index: -1;
 	}
 	.mainContainer{
-		position: absolute;
-		top:0;
-		left: 50%;
-		transform: translateX(-50%);
-		// max-width: 1130 / 1600 * 100%;
 		max-width: 113em;
 		width: 100%;
+		margin: 0 auto;
 	}
 }
 
 // main layout styles
-
+// .fixed{
+// 		position: fixed !important;
+// 		top: 0;
+// 		width: 100%;
+// 		z-index: 100;
+// 		background-color: #333;
+// 	}
 header{
 	padding-top: 5em;
+	padding-bottom: 4em;
 	width: 100%;
 	.burger{
 		display:none;
@@ -156,7 +163,7 @@ header{
 		}
 }
 .headerInfo{
-	padding: 3.6em 0;
+	padding: 0 0 3.6em 0;
 	h2{
 		font-family: 'Open Sans Condensed', sans-serif;
 		font-size: 3.3em;
@@ -581,3 +588,21 @@ footer{
 @import 'media/media.scss';
 @import 'settings/mixins';
 @import 'settings/normalize.scss';
+
+.headhesive{
+	position: absolute;
+	top: -1000%;
+	transition: .5s;
+	opacity: .9;
+		&--stick{
+			display:block;
+			position:fixed;
+			top: 0;
+			width: 100%;
+			background-color: #333;
+			z-index: 100;
+		}
+		header{
+			padding: 1em ;
+		}
+	} 
