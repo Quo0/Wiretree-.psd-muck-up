@@ -603,6 +603,10 @@ footer{
 			z-index: 100;
 		}
 		header{
+			box-sizing: border-box;
 			padding: 1em ;
+			.nav{
+				padding-top: 1em;
+			}
 		}
 	} 

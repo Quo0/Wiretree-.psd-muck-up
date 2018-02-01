@@ -1,4 +1,16 @@
-equalHeightBg();
+window.onload = function(){
+	//headheasive
+	var options = {
+	  offset: 500
+	}
+	var header = new Headhesive('#Headhesive-wrapper', options);
+	//
+	equalHeightBg();
+	menuToggler();
+	slider();
+	smoothLinks();
+}
+
 function equalHeightBg(){
 		window.onresize = function(e){
 		var mainContentHeight = document.querySelector('.mainContainer').offsetHeight;
@@ -8,7 +20,6 @@ function equalHeightBg(){
 	}
 }
 
-menuToggler();
 function menuToggler(){
 	var burgerBtn = document.querySelectorAll(".burger");
 	Array.from(burgerBtn).forEach(function(burger){
@@ -41,7 +52,7 @@ function menuToggler(){
 	})	
 }
 
-window.onload = function slider(){	
+function slider(){	
 	var sliderWindow = document.querySelector(".sliderWindow");
 	var sliderLine = document.querySelector(".slidesLine");
 	var slideWidth = document.querySelector(".slide").offsetWidth;
@@ -88,7 +99,7 @@ window.onload = function slider(){
 	}
 }
 
-window.onload = function smoothLinks(){
+function smoothLinks(){
 	var nav = document.querySelectorAll(".nav");
 	var burgerBtn = document.querySelectorAll(".burger");
 	console.log(nav)
@@ -147,10 +158,7 @@ window.onload = function smoothLinks(){
 }
 
 
-var options = {
-  offset: 500
-}
-var header = new Headhesive('#Headhesive-wrapper', options);
+
 
 
 
