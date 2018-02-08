@@ -12,12 +12,11 @@ window.onload = function(){
 }
 
 function equalHeightBg(){
-		window.onresize = function(e){
+		window.addEventListener("resize", function(e){
 		var mainContentHeight = document.querySelector('.mainContainer').offsetHeight;
-		var headerBgHeight = document.querySelector('.headerBg').offsetHeight;
 		var contentBg = document.querySelector('.contentBg');
-		contentBg.style.height = mainContentHeight - headerBgHeight + "px";
-	}
+		contentBg.style.height = mainContentHeight  + "px";
+	}) 
 }
 
 function menuToggler(){
@@ -85,7 +84,7 @@ function slider(){
 	}	
 
 	// changing slides size and position on resize
-	window.onresize = function(){
+	window.addEventListener("resize", function(){
 		slideWidth = document.querySelector(".slide").offsetWidth;
 		sliderLine.style.transition = "all 0s"; // to stop shaking while resizing
 		if(counter == 0){
@@ -96,23 +95,21 @@ function slider(){
 			left = (counter - 1) * slideWidth; // need to -1 due to slide switching 
 			sliderLine.style.left = -1 * left + "px";
 		}
-	}
+	})
 }
 
 function smoothLinks(){
 	var nav = document.querySelectorAll(".nav");
 	var burgerBtn = document.querySelectorAll(".burger");
-	console.log(nav)
 	var headhesiveWrapper = document.querySelector("#Headhesive-wrapper");
 	Array.from(nav).forEach(function(navig){
 		navig.addEventListener("click", function(e){
 			if(e.target.tagName =="A"){
-				console.log(e.target)
 				e.preventDefault();
 				var linkName = e.target.innerHTML.toLowerCase();
 				var idName = "#"+linkName;
 				var targetBlock = document.querySelector(idName);
-				var y = targetBlock.offsetTop - headhesiveWrapper.offsetHeight;
+				var target_Y = targetBlock.offsetTop - headhesiveWrapper.offsetHeight;
 				var scrollPosition = window.pageYOffset;
 				// reseting menu for mobiles
 				Array.from(nav).forEach(function(n){
@@ -127,28 +124,32 @@ function smoothLinks(){
 					var timer;
 					var step = 50;
 					if(targetBlock.offsetTop < 300){
-						y = targetBlock.offsetTop;
+						target_Y = targetBlock.offsetTop;
 					}
-					if(scrollPosition < y){
+					//scroll down
+					if(scrollPosition < target_Y){
 						window.scrollTo(0, scrollPosition);
 						scrollPosition = scrollPosition + step;
-						if( ((Math.abs(y) - Math.abs(scrollPosition)) >= step) || ((Math.abs(scrollPosition) - Math.abs(y)) >= step)){							
+						if( ((Math.abs(target_Y) - Math.abs(scrollPosition)) >= step) || ((Math.abs(scrollPosition) - Math.abs(target_Y)) >= step)){							
 							timer = setTimeout(scrollToId, 10);
 						}
-							else{
-							clearTimeout(timer);
-							window.scrollTo(0, y); // to the point
-						}
-					}
-					else if(scrollPosition > y){
-						window.scrollTo(0, scrollPosition);
-						scrollPosition = scrollPosition - step;
-						if( ((Math.abs(y) - Math.abs(scrollPosition)) >= step) || ((Math.abs(scrollPosition) - Math.abs(y)) >= step)){							
-							timer = setTimeout(scrollToId, 10);
-						}
+						// to the point
 						else{
 							clearTimeout(timer);
-							window.scrollTo(0, y); // to the point
+							window.scrollTo(0, target_Y); 
+						}
+					}
+					//scroll up
+					else if(scrollPosition > target_Y){
+						window.scrollTo(0, scrollPosition);
+						scrollPosition = scrollPosition - step;
+						if( ((Math.abs(target_Y) - Math.abs(scrollPosition)) >= step) || ((Math.abs(scrollPosition) - Math.abs(target_Y)) >= step)){							
+							timer = setTimeout(scrollToId, 10);
+						}
+						// to the point
+						else{
+							clearTimeout(timer);
+							window.scrollTo(0, target_Y); 
 						}
 					}					
 				}
@@ -156,9 +157,5 @@ function smoothLinks(){
 		})
 	})	
 }
-
-
-
-
 
 
