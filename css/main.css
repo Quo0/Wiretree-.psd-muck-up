@@ -18,23 +18,24 @@ p {
   position: relative;
   margin: 0 auto; }
   .allContent .headerBg {
+    position: absolute;
+    z-index: -1;
     width: 100%;
     min-height: 48em;
     background-color: #333333; }
   .allContent .contentBg {
     width: 100%;
-    min-height: 200em; }
-  .allContent .mainContainer {
+    min-height: 200em;
     position: absolute;
-    top: 0;
-    left: 50%;
-    -webkit-transform: translateX(-50%);
-            transform: translateX(-50%);
+    z-index: -1; }
+  .allContent .mainContainer {
     max-width: 113em;
-    width: 100%; }
+    width: 100%;
+    margin: 0 auto; }
 
 header {
   padding-top: 5em;
+  padding-bottom: 4em;
   width: 100%; }
   header .burger {
     display: none;
@@ -132,7 +133,7 @@ header {
     clear: both; }
 
 .headerInfo {
-  padding: 3.6em 0; }
+  padding: 0 0 3.6em 0; }
   .headerInfo h2 {
     font-family: 'Open Sans Condensed', sans-serif;
     font-size: 3.3em;
@@ -806,5 +807,24 @@ template {
 * {
   margin: 0;
   padding: 0; }
+
+.headhesive {
+  position: absolute;
+  top: -1000%;
+  -webkit-transition: .5s;
+  transition: .5s;
+  opacity: .9; }
+  .headhesive--stick {
+    display: block;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    z-index: 100; }
+  .headhesive header {
+    box-sizing: border-box;
+    padding: 1em; }
+    .headhesive header .nav {
+      padding-top: 1em; }
 
 /*# sourceMappingURL=main.css.map */
